@@ -1,0 +1,11 @@
+Title: Videos
+
+options:
+  preview: false
+
+sections:
+  videos:
+    headline: Videos
+    type: pages
+    template: video
+    limit: 30

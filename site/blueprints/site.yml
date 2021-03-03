@@ -1,0 +1,74 @@
+title: Home
+
+columns:
+  - width: 2/3
+    sections:
+      days:
+        headline: Ημέρες
+        type: pages
+        template: day
+        parent: site.find('days')
+
+      results:
+        type: fields
+        fields:
+          results_time:
+            label: Ημερομηνία και ώρα προβολής αποτελεσμάτων
+            type: date
+            time: true
+            translate: false
+
+          user_weight:
+            label: Συντελεστής χρήστη
+            type: number
+            step: .01
+            min: 0
+            max: 1
+            help: Συντελεστής απο 0.0 μέχρι 1.0
+            width: 1/2
+            translate: false
+
+          critic_weight:
+            label: Συντελεστής κριτικής επιτροπής
+            type: number
+            step: .01
+            min: 0
+            max: 1
+            help: Συντελεστής απο 0.0 μέχρι 1.0
+            width: 1/2
+            translate: false
+
+      videos:
+        headline: Videos
+        type: pages
+        template: video
+        parent: site.find('videos')
+        limit: 12
+
+  - width: 1/3
+      type: fields
+      fields:
+        instructions:
+          label: Οδηγίες
+          type: textarea
+          size: small
+
+        voting_closed:
+          label: Μήνυμα κλειστής ψηφοφορίας
+          type: textarea
+          size: small
+
+        vote_end:
+          label: Μήνυμα τέλους διαγωνισμού
+          type: textarea
+          size: small
+
+        fb_link:
+          label: Facebook link
+          type: url
+          translate: false
+
+        yt_link:
+          label: Youtube link
+          type: url
+          translate: false

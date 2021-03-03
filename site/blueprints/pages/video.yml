@@ -1,0 +1,28 @@
+title: Video
+
+options:
+  preview: false
+
+sections:
+
+  main:
+    headline: Content
+    type: fields
+    fields:
+      video_id:
+        label: Video ID
+        type: text
+        translate: false
+        width: 1/4
+
+      country:
+        label: Χώρα
+        type: text
+        translate: false
+        width: 2/4
+
+      video:
+        label: Videos
+        type: files
+        max: 1
+        translate: false

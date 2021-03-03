@@ -1,0 +1,29 @@
+title: Day
+
+options:
+  preview: false
+
+fields:
+  starts:
+    label: Αρχή
+    type: date
+    help: Χρόνος-μήνας-μέρα | ώρα εκκίνησης
+    time: true
+    translate: false
+
+    width: 1/2
+
+  ends:
+    label: Τέλος
+    type: date
+    help: Χρόνος-μήνας-μέρα | ώρα λήξης
+    time: true
+    translate: false
+    width: 1/2
+
+  videos:
+    label: Videos ημέρας
+    type: pages
+    query: site.find('videos')
+    subpages: false
+    translate: false

@@ -1,0 +1,73 @@
+body {
+  height: 100vh;
+}
+
+main {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.event-title {
+  margin-bottom: 2rem;
+}
+
+h1 {
+  color: white;
+}
+
+form {
+  background: var(--blue-dark);
+  color: var(--pink);
+  padding: 3rem;
+}
+
+form > * + * {
+  margin-top: 1rem;
+}
+
+label {
+  display: block;
+  width: 100%;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+input {
+  width: 100%;
+  border: 3px solid var(--pink);
+  color: white;
+  background: none;
+  padding: 1rem;
+}
+
+input:focus {
+  background: var(--blue-deep);
+  outline: none;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active  {
+  -webkit-text-fill-color: white !important;
+  -webkit-box-shadow: 0 0 0 30px var(--blue-dark) inset !important;
+}
+
+input[type="submit"] {
+  flex-direction: column;
+  margin-top: 2rem;
+}
+
+.alert {
+  color: white;
+  margin-top: 1rem;
+}
+
+@media (min-width: 400px) {
+  form {
+    width: 50ch;
+  }
+}

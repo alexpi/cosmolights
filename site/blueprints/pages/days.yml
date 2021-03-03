@@ -1,0 +1,10 @@
+Title: Days
+
+options:
+  preview: false
+
+sections:
+  videos:
+    headline: Ημέρες
+    type: pages
+    template: day
