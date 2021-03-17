@@ -19,7 +19,7 @@ return function() {
   }
 
   if (time() > $results_datetime->toDate()) {
-    $results = showResults();
+    $results = calculateResults();
   }
 
   return [

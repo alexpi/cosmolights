@@ -1,8 +1,6 @@
 const config = {
   open: false,
-  proxy: 'localhost/cosmolights/',
-  // online: true,
-  // tunnel: 'cosmolights',
+  proxy: 'http://cosmolights.local',
   files: [
     'assets/**/*.*',
     "site/blueprints/**/*.yml",

@@ -18,7 +18,7 @@ columns:
             time: true
             translate: false
 
-          user_weight:
+          public_weight:
             label: Συντελεστής χρήστη
             type: number
             step: .01

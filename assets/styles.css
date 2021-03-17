@@ -63,6 +63,10 @@ a {
   line-height: 1;
 }
 
+.hidden {
+  display: none;
+}
+
 .user-type {
   color: var(--blue-dark);
   background: #ffc800;
@@ -209,7 +213,7 @@ video:focus {
 }
 
 .intro .info {
-  max-width: 1078px;
+  max-width: 1200px;
 }
 
 .event {
@@ -227,6 +231,22 @@ video:focus {
   text-decoration: underline;
   color: var(--pink);
   word-break: break-word;
+}
+
+.login {
+  border: none;
+  font-size: calc(0.8rem + 0.25vw);
+  font-weight: bold;
+  color: white;
+  background: var(--pink);
+  width: 100%;
+  padding: 1rem 2rem;
+  transition: background 200ms ease;
+}
+
+.login:hover {
+  cursor: pointer;
+  background: var(--pink-dark);
 }
 
 .videos-container {
@@ -352,6 +372,10 @@ video:focus {
   margin-bottom: 0.4rem;
 }
 
+.video h3.inactive {
+  opacity: 0.5;
+}
+
 .video .rate {
   --size: 3.2rem;
 
@@ -365,6 +389,14 @@ video:focus {
   font-weight: 700;
   margin-right: 0.3rem;
   transition: color, background 30ms linear;
+}
+
+.video .rate:disabled {
+  opacity: 0.5;
+}
+
+.video .rate:disabled:hover {
+  cursor: auto;
 }
 
 .video .rate:hover {
@@ -463,7 +495,7 @@ video:focus {
 }
 
 .message.show {
-  opacity: 1
+  opacity: 1;
 }
 
 footer {
@@ -473,7 +505,7 @@ footer {
   margin-top: auto;
 }
 
-.cookies {
+.privacy {
   color: var(--pink);
   max-width: 100ch;
   margin-bottom: 0.5rem;
@@ -569,7 +601,7 @@ footer {
   }
 
   .info > * {
-    flex: 1 1 50%;
+    flex: 1 1 33%;
   }
 
   .intro .info > * + * {
@@ -577,7 +609,11 @@ footer {
   }
 
   .intro .info p {
-    margin-right: 1rem;
+    margin-right: 2rem;
+  }
+
+  .login {
+    max-width: 25ch;
   }
 
   .event {

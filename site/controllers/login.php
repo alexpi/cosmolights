@@ -1,6 +1,6 @@
 <?php
 
-return function ($kirby) {
+return function($kirby) {
   $error = false;
 
   if ($kirby->request()->is('POST') && get('login')) {

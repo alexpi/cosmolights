@@ -8,7 +8,9 @@ return [
   'name' => 'English',
   'url' => '/en',
   'translations' => [
-    'cookies' => 'For its proper operation, the application uses cookies without storing personal data.',
+    'login' => 'Log in',
+    'login-instruction' => 'Log in  with your Google or Facebook account.',
+    'privacy' => 'This application uses cookies, and is accessing your facebook/google account you are signing-in with. These processes are used to secure its proper operation, and they do not store personal data.',
     'day' => 'day',
     'view-on' => 'Watch full videos at <a href="{ facebook }" target="_blank">facebook</a> and <a href="{ youtube }" target="_blank">youtube</a>',
     'your-rating' => 'Your rating',

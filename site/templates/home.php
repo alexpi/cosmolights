@@ -26,7 +26,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
   <?= css(['assets/reset.css', 'assets/styles.css']) ?>
 </head>
-<body data-day="<?= isset($day) ? 'day' . date('Y') . '_' . $day->num() : '' ?>">
+<body data-in-progress="<?= isset($day) ? 'true' : 'false' ?>">
   <?php if ($user = $kirby->user()): ?>
     <h4 class="user-type">Έχετε συνδεθεί <strong><?= $user->name() ?></strong></h4>
   <?php endif ?>
@@ -75,7 +75,17 @@
             </p>
           </div>
 
-          <?= $site->instructions()->kirbyText() ?>
+          <p>
+            <?php if (!$kirby->user()): ?>
+              <span data-login-instruction><?= t('login-instruction') ?></span>
+            <?php endif ?>
+
+            <?= $site->instructions() ?>
+          </p>
+
+          <?php if (!$kirby->user()): ?>
+            <button class="login" data-login><?= t('login') ?></button>
+          <?php endif ?>
         </div>
 
         <div class="day mobile">
@@ -86,23 +96,23 @@
 
     <?php if (!isset($day) && $next_day): ?>
       <div class="day-info">
-        <!-- <p><?= tt('voting-closed', [
+        <p><?= tt('voting-closed', [
           'vote-start' => $next_day->starts()->toDate('%R'),
           'vote-end' => $next_day->ends()->toDate('%R'),
           'day' => $next_day->title()->lower()
           ])?>
-        </p> -->
+        </p>
       </div>
     <?php endif ?>
 
     <?php if ($voting_ended && !$results): ?>
       <div class="day-info">
-        <!-- <p><?= tt('voting-ended', [
+        <p><?= tt('voting-ended', [
           'day' => $results_datetime->toDate('%A'),
           'time' => $results_datetime->toDate('%R'),
           ])?>
-        </p> -->
-        <p><?= $site->vote_end() ?></p>
+        </p>
+        <!-- <p><?= $site->vote_end() ?></p> --> <!-- use for manual ending message -->
       </div>
     <?php endif ?>
 
@@ -111,8 +121,8 @@
         <h2 class="heading">Videos</h2>
 
         <form class="videos-form">
-          <?php if ($user = $kirby->user()): ?>
-            <input class="user" type="hidden" name="user" value="<?= $user->id() ?>">
+          <?php if ($critic = $kirby->user()): ?>
+            <input type="hidden" name="critic" data-element="critic" value="<?= $critic->id() ?>">
           <?php endif ?>
 
           <div class="videos">
@@ -136,11 +146,11 @@
 
                     <div class="group">
                       <div class="rating">
-                        <h3><?php echo t('your-rating') ?>:</h3>
+                        <h3 class="<?= e($kirby->user(), '', 'inactive') ?>" data-element="rate-title"><?php echo t('your-rating') ?>:</h3>
 
                         <div class="rates">
                           <?php for ($i = 1; $i < 6; $i++): ?>
-                            <button class="rate" type="button" value="<?= $i ?>"><?= $i ?></button>
+                            <button class="rate" type="button" value="<?= $i ?>" data-element="rate" <?= e($kirby->user(), '', 'disabled') ?>><?= $i ?></button>
                           <?php endfor ?>
                         </div>
                       </div>
@@ -152,7 +162,7 @@
           </div>
 
           <div class="submit-container">
-            <button type="submit" id="submit">
+            <button type="button" id="submit">
               <span><?php echo t('send-your-vote') ?></span>
 
               <div class="icon">
@@ -195,10 +205,11 @@
   </main>
 
   <footer>
-    <p class="cookies"><?= t('cookies') ?></p>
+    <p id="privacy" class="privacy"><?= t('privacy') ?></p>
     <p class="copyright"><a href="https://www.cosmopolisfestival.gr" target="_blank">cosmopolisfestival.gr</a> © 2021</p>
   </footer>
 
-  <?= js('assets/app.js', ['type' => 'module']) ?>
+  <script src="https://cdn.auth0.com/js/auth0-spa-js/1.13/auth0-spa-js.production.js"></script>
+  <?= js('assets/app.js') ?>
 </body>
 </html>
